@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calculate View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BMI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CalculateViewController" customModule="BMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,14 +40,17 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4b-cf-SRh" userLabel="number">
-                                                        <rect key="frame" x="71.5" y="78" width="34.5" height="38.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4b-cf-SRh" userLabel="number">
+                                                        <rect key="frame" x="66" y="78" width="45.5" height="38.5"/>
                                                         <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="30"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ryn-on-ZvL">
+                                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="40" maximumValue="200" stepValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="ryn-on-ZvL">
                                                         <rect key="frame" x="41.5" y="148" width="94" height="32"/>
+                                                        <connections>
+                                                            <action selector="weightChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="tbN-ed-5fY"/>
+                                                        </connections>
                                                     </stepper>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,14 +65,17 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-ji-Wpt" userLabel="Number">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-ji-Wpt" userLabel="Number">
                                                         <rect key="frame" x="70.5" y="78" width="36.5" height="38.5"/>
                                                         <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="30"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="4Rj-tW-mvT">
+                                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="4Rj-tW-mvT">
                                                         <rect key="frame" x="41.5" y="148" width="94" height="32"/>
+                                                        <connections>
+                                                            <action selector="ageChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="x3a-Kc-TVg"/>
+                                                        </connections>
                                                     </stepper>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -84,20 +90,20 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BSi-J5-hIT" userLabel="Height Stack View">
                                         <rect key="frame" x="0.0" y="352" width="374" height="200"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height (cm)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUf-GY-zse">
-                                                <rect key="frame" x="126" y="0.0" width="122.5" height="53.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height (m)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUf-GY-zse">
+                                                <rect key="frame" x="131" y="0.0" width="112.5" height="53.5"/>
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nuh-xv-aqe">
-                                                <rect key="frame" x="156.5" y="73.5" width="61" height="53"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nuh-xv-aqe">
+                                                <rect key="frame" x="160.5" y="73.5" width="53" height="53"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="35"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9lL-Zc-nxZ">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1.5" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="9lL-Zc-nxZ">
                                                 <rect key="frame" x="10" y="146.5" width="354" height="54.5"/>
                                                 <color key="tintColor" red="0.6784313917" green="0.2352941036" blue="0.23921570180000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
@@ -106,6 +112,9 @@
                                                 </constraints>
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="20" right="8"/>
                                                 <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="heightChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="DIE-16-fdB"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -159,6 +168,9 @@
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="30"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="calculateButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3no-vZ-4nu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -176,32 +188,96 @@
                             <constraint firstItem="N9g-J0-Pgv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wy1-I8-fHc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ageStepper" destination="4Rj-tW-mvT" id="Eth-vG-SR1"/>
+                        <outlet property="ageUILabel" destination="Ifb-ji-Wpt" id="pEr-0N-wpH"/>
+                        <outlet property="heightUILabel" destination="Nuh-xv-aqe" id="D4i-NL-EHd"/>
+                        <outlet property="heightUISlider" destination="9lL-Zc-nxZ" id="pJ7-Ir-Sb4"/>
+                        <outlet property="weightStepper" destination="ryn-on-ZvL" id="3gr-Mw-vTW"/>
+                        <outlet property="weightUILabel" destination="t4b-cf-SRh" id="20V-y3-Ugb"/>
+                        <segue destination="k3s-Sb-jRe" kind="presentation" identifier="goToResult" id="NuV-rI-Kyy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="93.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="kup-Qb-z8F">
             <objects>
-                <viewController id="k3s-Sb-jRe" sceneMemberID="viewController">
+                <viewController id="k3s-Sb-jRe" customClass="ResultViewController" customModule="BMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pmJ-4I-p7b">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bakground2" translatesAutoresizingMaskIntoConstraints="NO" id="Pki-H4-CKs">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="8VW-xl-XMe">
+                                <rect key="frame" x="20" y="231" width="374" height="380"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your BMI Result ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d4-yM-EiD">
+                                        <rect key="frame" x="45" y="20" width="284" height="35"/>
+                                        <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="30"/>
+                                        <color key="textColor" red="0.6784313917" green="0.2352941036" blue="0.23921570180000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOw-mR-jxg">
+                                        <rect key="frame" x="147" y="95" width="80" height="35"/>
+                                        <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsb-k9-VhP">
+                                        <rect key="frame" x="140" y="170" width="94.5" height="34.5"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal BMI range: 18.5 - 25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Dp-vP-6Qa">
+                                        <rect key="frame" x="60.5" y="244.5" width="253.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIR-Ef-egR">
+                                        <rect key="frame" x="124.5" y="310" width="125" height="50"/>
+                                        <color key="backgroundColor" red="0.6784313917" green="0.2352941036" blue="0.23921570180000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="5gQ-aj-R14"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Try Again">
+                                            <fontDescription key="titleFontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tryAgainPressed:" destination="k3s-Sb-jRe" eventType="touchUpInside" id="90s-Ih-edR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="dw4-jk-AkP"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J6o-NM-rEH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Pki-H4-CKs" firstAttribute="leading" secondItem="pmJ-4I-p7b" secondAttribute="leading" id="8c9-jP-Gaw"/>
                             <constraint firstItem="Pki-H4-CKs" firstAttribute="trailing" secondItem="pmJ-4I-p7b" secondAttribute="trailing" id="L3F-xE-Jfb"/>
+                            <constraint firstItem="8VW-xl-XMe" firstAttribute="centerX" secondItem="pmJ-4I-p7b" secondAttribute="centerX" id="LxW-K0-ktX"/>
+                            <constraint firstItem="8VW-xl-XMe" firstAttribute="centerY" secondItem="pmJ-4I-p7b" secondAttribute="centerY" id="R8N-Aw-j0e"/>
                             <constraint firstItem="Pki-H4-CKs" firstAttribute="top" secondItem="pmJ-4I-p7b" secondAttribute="top" id="dD4-Xz-sjc"/>
                             <constraint firstAttribute="bottom" secondItem="Pki-H4-CKs" secondAttribute="bottom" id="isw-wT-TZv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="BMINumberUILabel" destination="QOw-mR-jxg" id="XFt-EH-Dc2"/>
+                        <outlet property="resultUILabel" destination="hsb-k9-VhP" id="HuQ-Po-HPw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4S-BN-QYO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
