@@ -13,10 +13,14 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var resultUILabel: UILabel!
     
     var resultBMI: String?
+    var resultResult: String?
+    var resultColor: UIColor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         BMINumberUILabel.text = resultBMI
+        resultUILabel.text = resultResult
+        resultUILabel.textColor = resultColor
     }
     
     @IBAction func tryAgainPressed(_ sender: UIButton) {

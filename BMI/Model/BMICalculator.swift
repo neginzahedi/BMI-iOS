@@ -6,16 +6,33 @@
 //
 
 import Foundation
+import UIKit
 
 struct BMICalculator {
     
-    var bmiValue: Float = 0.0
+    var bmi: BMI?
     
     mutating func calculator(height: Double, weight: Double){
-        self.bmiValue = Float(weight / pow(height, 2))
+        let bmiValue = Float(weight / pow(height, 2))
+        
+        if bmiValue < 18.5 {
+            bmi = BMI(value: bmiValue, result: "Low", color: UIColor.red)
+        }else if bmiValue < 24.9{
+            bmi = BMI(value: bmiValue, result: "Normal",color: UIColor.green)
+        }else{
+            bmi = BMI(value: bmiValue, result: "High",color: UIColor.red)
+        }
     }
     
     func getBMIValue()->String{
-        return String(format: "%.1f", bmiValue)
+        return String(format: "%.1f", bmi?.value ?? 0.0)
+    }
+    
+    func getResult()->String{
+        return bmi?.result ?? "..."
+    }
+    
+    func getColor()->UIColor{
+        return bmi?.color ?? UIColor.black
     }
 }
